@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: collectd_plugins
+# Cookbook Name:: collectd-plugins
 # Recipe:: interface
 #
 # Copyright 2010, Atari, Inc

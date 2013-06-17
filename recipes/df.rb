@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: collectd_plugins
+# Cookbook Name:: collectd-plugins
 # Recipe:: df
 #
 # Copyright 2010, Atari, Inc
@@ -20,7 +20,9 @@
 include_recipe "collectd"
 
 collectd_plugin "df" do
-  options(:report_reserved=>false,
-          "FSType"=>["proc", "sysfs", "fusectl", "debugfs", "securityfs", "devtmpfs", "devpts", "tmpfs"],
-          :ignore_selected=>true)
+  options(
+    :report_reserved=>false,
+    "FSType"=>["proc", "sysfs", "fusectl", "debugfs", "securityfs", "devtmpfs", "devpts", "tmpfs"],
+    :ignore_selected=>true
+  )
 end

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: collectd_plugins
+# Cookbook Name:: collectd-plugins
 # Recipe:: rrdtool
 #
 # Copyright 2010, Atari, Inc
@@ -20,6 +20,9 @@
 include_recipe "collectd"
 
 collectd_plugin "rrdtool" do
-  options(:data_dir=>File.join(node[:collectd][:base_dir], "rrd"),
-          :cache_flush=>120, :writes_per_second=>75)
+  options(
+    :data_dir=>File.join(node[:collectd][:platform][:collectd_base_dir], "rrd"),
+    :cache_flush=>120,
+    :writes_per_second=>75
+  )
 end
