@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: collectd_plugins
+# Cookbook Name:: collectd-plugins
 # Recipe:: redis
 #
 # Copyright 2010, Atari, Inc
@@ -19,7 +19,7 @@
 
 include_recipe "collectd"
 
-cookbook_file File.join(node[:collectd][:plugin_dir], "redis.py") do
+cookbook_file File.join(node[:collectd][:platform][:collectd_plugin_dir], "redis.py") do
   owner "root"
   group "root"
   mode "644"
@@ -29,8 +29,12 @@ servers = []
 if node[:recipes].include? "redis::server"
   servers << "localhost"
 else
-  search(:node, 'recipes:"redis::server"') do |server|
-    servers << server["fqdn"]
+  if Chef::Config[:solo]
+    Chef::Log.warn("This recipe uses search. Chef Solo does not support search.")
+  else
+    search(:node, 'recipes:"redis::server"') do |server|
+      servers << server["fqdn"]
+    end
   end
 end
 

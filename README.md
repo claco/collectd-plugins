@@ -14,13 +14,31 @@ In the issue description, please include a longer description of the issue, alon
 If logfiles are extremely long, please place the relevant portion into the issue description, and link to a gist containing the entire logfile
 
 
+# Requirements #
+
+Chef 11.0 or higher required (for Chef environment use).
+
+## Platforms ##
+
+This cookbook is actively tested on the following platforms/versions:
+
+* Ubuntu-12.04
+* CentOS-6.3
+
+While not actively tested, this cookbook should also work the following platforms:
+
+* Debian/Mint derivitives
+* Amazon/Oracle/Scientific/RHEL
+
+## Cookbooks ##
+
+The following cookbooks are dependencies:
+
+* collectd
+
 # DESCRIPTION #
 
 Configure plugins for the [collectd](http://collectd.org/) monitoring daemon.
-
-# REQUIREMENTS #
-
-This cookbook has only been tested on Ubuntu 10.04.
 
 # USAGE #
 
