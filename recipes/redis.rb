@@ -32,7 +32,7 @@ else
   if Chef::Config[:solo]
     Chef::Log.warn("This recipe uses search. Chef Solo does not support search.")
   else
-    search(:node, 'recipes:"redis::server"') do |server|
+    search(:node, 'run_list:recipe\[redis\:\:server\]') do |server|
       servers << server["fqdn"]
     end
   end
